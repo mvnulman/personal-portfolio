@@ -1,15 +1,15 @@
-import type { RichTextContent } from '@graphcms/rich-text-types'
+import type { RichTextContent } from '@graphcms/rich-text-types';
 
-declare module PageInfo {
+declare namespace PageInfo {
   export type Home = {
     introduction: {
-      raw: RichTextContent
-    }
+      raw: RichTextContent;
+    };
     technologies: {
-      name: string
-    }[]
+      name: string;
+    }[];
     profilePicture: {
-      url: string
-    }
-  }
+      url: string;
+    };
+  };
 }

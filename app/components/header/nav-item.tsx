@@ -1,16 +1,17 @@
-import { cn } from '@/app/lib/utils'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { cn } from '@/app/lib/utils';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { HiCode } from 'react-icons/hi';
 
 type NavItemProps = {
-  href: string
-  label: string
-}
+  href: string;
+  label: string;
+};
 
 export const NavItem = ({ label, href }: NavItemProps) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  const isActive = pathname === href
+  const isActive = pathname === href;
 
   return (
     <Link
@@ -20,8 +21,8 @@ export const NavItem = ({ label, href }: NavItemProps) => {
         isActive && 'text-gray-50',
       )}
     >
-      <span className="text-emerald-400">#</span>
+      <HiCode className="text-[#FF4858]" size={18} />
       {label}
     </Link>
-  )
-}
+  );
+};

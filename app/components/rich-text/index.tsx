@@ -1,7 +1,7 @@
-import { RichText as CMSRichText } from '@graphcms/rich-text-react-renderer'
-import { ComponentProps } from 'react'
+import { RichText as CMSRichText } from '@graphcms/rich-text-react-renderer';
+import { ComponentProps } from 'react';
 
-type RichTextProps = ComponentProps<typeof CMSRichText>
+type RichTextProps = ComponentProps<typeof CMSRichText>;
 
 export const RichText = ({ ...props }: RichTextProps) => {
   return (
@@ -19,12 +19,12 @@ export const RichText = ({ ...props }: RichTextProps) => {
         a: ({ children, ...props }) => (
           <a
             {...props}
-            className="hover:text-emerald-500 transition-colors underline"
+            className="hover:text-[#FF6B7A] transition-colors underline"
           >
             {children}
           </a>
         ),
       }}
     />
-  )
-}
+  );
+};
