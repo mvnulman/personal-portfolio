@@ -1,6 +1,6 @@
 'use client';
 
-import { Project } from '@/app/types/projects';
+import type { Project } from '@/app/types/projects';
 import { ProjectCard } from './project-card';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

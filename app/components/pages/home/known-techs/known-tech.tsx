@@ -10,6 +10,11 @@ import {
   SiTypescript,
   SiReact,
   SiNextdotjs,
+  SiStyledcomponents,
+  SiSemanticuireact,
+  SiPostman,
+  SiTestinglibrary,
+  SiRadixui,
 } from 'react-icons/si';
 
 type KnownTechProps = {
@@ -26,6 +31,12 @@ const techIcons: Record<
   TypeScript: SiTypescript,
   'React.js': SiReact,
   'Next.js': SiNextdotjs,
+  'shadcn/ui': SiRadixui,
+  'Styled-components': SiStyledcomponents,
+  'Semantic UI': SiSemanticuireact,
+  'REST APIs': SiPostman,
+  'Context API': SiReact,
+  'React Testing Library': SiTestinglibrary,
 };
 
 export const KnownTech = ({ tech }: KnownTechProps) => {

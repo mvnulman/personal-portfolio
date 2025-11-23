@@ -48,17 +48,17 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   return (
     <motion.div
-      className="grid grid-cols-[40px,1fr] gap-4 md:gap-10"
+      className="grid grid-cols-[100px,1fr] gap-4 md:gap-10"
       {...fadeUpAnimation}
       transition={{ duration: 0.5 }}
     >
       <div className="flex items-center flex-col gap-4">
-        <div className="rounded-full border border-gray-500 p-0.5">
+        <div className="rounded-full border border-gray-500 p-1">
           <Image
             src={companyLogo.url}
-            width={40}
-            height={40}
-            className="rounded-full"
+            width={100}
+            height={100}
+            className="rounded-full object-contain"
             alt={`Logo da empresa ${companyName}`}
           />
         </div>

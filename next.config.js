@@ -5,6 +5,8 @@ const nextConfig = {
       'media.graphassets.com',
       'avatars.githubusercontent.com',
       'troupebrasil.com.br',
+      'picsum.photos',
+      'opengraph.githubassets.com',
     ],
     remotePatterns: [
       {

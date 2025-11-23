@@ -11,7 +11,7 @@ export const metadata = {
 const getPageData = async (): Promise<ProjectsPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'mvnulman';
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 
     try {
       const reposResponse = await axios.get(
@@ -28,7 +28,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
           .replace(/-/g, ' ')
           .replace(/\b\w/g, (l: string) => l.toUpperCase()),
         thumbnail: {
-          url: repo.owner.avatar_url,
+          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
         },
         technologies: [], // Could fetch languages separately if needed
       }));

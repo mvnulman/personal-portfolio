@@ -1,7 +1,7 @@
 import { ProjectDetails } from '@/app/components/pages/project/project-details';
 import { ProjectSections } from '@/app/components/pages/project/project-sections';
 import { ProjectPageData, ProjectsPageStaticData } from '@/app/types/page-info';
-import { Project } from '@/app/types/projects';
+import type { Project } from '@/app/types/projects';
 import { fetchHygraphQuery } from '@/app/utils/fetch-hygraph-query';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -16,7 +16,7 @@ type ProjectProps = {
 const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'mvnulman';
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 
     try {
       const repoResponse = await axios.get(
@@ -40,18 +40,7 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
           .replace(/\b\w/g, (l: string) => l.toUpperCase()),
         shortDescription: repo.description || 'Projeto desenvolvido no GitHub',
         description: {
-          raw: {
-            children: [
-              {
-                type: 'paragraph',
-                children: [
-                  {
-                    text: repo.description || 'Sem descrição disponível.',
-                  },
-                ],
-              },
-            ],
-          },
+          raw: { children: [] },
           text: repo.description || 'Sem descrição disponível.',
         },
         technologies: [], // Could fetch languages

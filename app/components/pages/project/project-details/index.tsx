@@ -6,7 +6,7 @@ import { SectionTitle } from '@/app/components/section-title';
 import { TechBadge } from '@/app/components/tech-badge';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-import { Project } from '@/app/types/projects';
+import type { Project } from '@/app/types/projects';
 import { RichText } from '@/app/components/rich-text';
 import { TbBrandGithub } from 'react-icons/tb';
 import { FiGlobe } from 'react-icons/fi';
