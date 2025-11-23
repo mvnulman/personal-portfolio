@@ -16,8 +16,8 @@ type ProjectProps = {
 const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
-    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
     try {
       const repoResponse = await axios.get(
@@ -46,7 +46,7 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
       );
 
       const languages = languagesResponse.data;
-      const technologies = Object.keys(languages).map((lang) => ({
+      const technologies = Object.keys(languages).map(lang => ({
         name: lang,
       }));
 
@@ -143,8 +143,8 @@ export default async function Project({ params: { slug } }: ProjectProps) {
 export async function generateStaticParams() {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch slugs from GitHub
-    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'mvnulman';
-    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'mvnulman';
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
     try {
       const reposResponse = await axios.get(

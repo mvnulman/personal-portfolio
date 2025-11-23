@@ -11,8 +11,8 @@ export const metadata = {
 const getPageData = async (): Promise<ProjectsPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
-    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
     try {
       const reposResponse = await axios.get(
@@ -38,7 +38,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
 
       // Map GitHub repos to projects structure with languages
       const projects = await Promise.all(
-        (repos as GitHubRepo[]).map(async (repo) => {
+        (repos as GitHubRepo[]).map(async repo => {
           // Fetch languages for each repository
           try {
             const languagesResponse = await axios.get(
@@ -53,7 +53,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
             );
 
             const languages = languagesResponse.data;
-            const technologies = Object.keys(languages).map((lang) => ({
+            const technologies = Object.keys(languages).map(lang => ({
               name: lang,
             }));
 
@@ -78,10 +78,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
               },
             };
           } catch (error) {
-            console.error(
-              `Error fetching languages for ${repo.name}:`,
-              error,
-            );
+            console.error(`Error fetching languages for ${repo.name}:`, error);
             // Return project without technologies if language fetch fails
             return {
               shortDescription:
