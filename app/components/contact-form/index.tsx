@@ -12,9 +12,15 @@ import { toast } from 'react-hot-toast';
 import { fadeUpAnimation } from '@/app/lib/animations';
 
 const contactFormSchema = z.object({
-  name: z.string().min(3).max(100),
-  email: z.string().email(),
-  message: z.string().min(1).max(500),
+  name: z
+    .string()
+    .min(3, 'Nome deve ter pelo menos 3 caracteres')
+    .max(100, 'Nome deve ter no máximo 100 caracteres'),
+  email: z.string().email('E-mail inválido'),
+  message: z
+    .string()
+    .min(1, 'Mensagem é obrigatória')
+    .max(500, 'Mensagem deve ter no máximo 500 caracteres'),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -24,7 +30,7 @@ export const ContactForm = () => {
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting },
+    formState: { isSubmitting, errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
@@ -60,6 +66,11 @@ export const ContactForm = () => {
               className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
               {...register('name')}
             />
+            {errors.name && (
+              <span className="text-red-400 text-sm mt-1 block">
+                {errors.name.message}
+              </span>
+            )}
           </motion.div>
           <motion.div {...fadeUpAnimation}>
             <input
@@ -68,6 +79,11 @@ export const ContactForm = () => {
               className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
               {...register('email')}
             />
+            {errors.email && (
+              <span className="text-red-400 text-sm mt-1 block">
+                {errors.email.message}
+              </span>
+            )}
           </motion.div>
           <motion.div {...fadeUpAnimation}>
             <textarea
@@ -76,6 +92,11 @@ export const ContactForm = () => {
               {...register('message')}
               maxLength={500}
             />
+            {errors.message && (
+              <span className="text-red-400 text-sm mt-1 block">
+                {errors.message.message}
+              </span>
+            )}
           </motion.div>
 
           <motion.div {...fadeUpAnimation}>

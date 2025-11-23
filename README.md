@@ -91,6 +91,10 @@ A modern, responsive, and professional portfolio website built with cutting-edge
    # Hygraph CMS (Optional)
    HYGRAPH_URL=your_hygraph_url
    HYGRAPH_TOKEN=your_hygraph_token
+
+   # Email Integration (Resend - Recommended)
+   RESEND_API_KEY=your_resend_api_key
+   YOUR_EMAIL=your-email@gmail.com
    ```
 
 4. **Run the development server**
@@ -186,6 +190,25 @@ To enable dynamic project fetching from GitHub:
    GITHUB_USERNAME=your_username
    GITHUB_TOKEN=your_token
    ```
+
+### Email Integration (Resend)
+
+To enable email notifications from the contact form:
+
+1. **Create a Resend account** at [resend.com](https://resend.com)
+2. **Get your API key** from the dashboard
+3. **Verify your domain** (or use the default `onboarding@resend.dev` for testing)
+4. **Add to `.env.local`**:
+   ```env
+   RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
+   YOUR_EMAIL=your-email@gmail.com
+   ```
+
+**Features:**
+- ✅ 3,000 emails/month free
+- ✅ Beautiful HTML emails
+- ✅ Reliable delivery
+- ✅ Easy setup
 
 ### Hygraph CMS (Optional)
 
