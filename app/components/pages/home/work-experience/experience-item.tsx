@@ -4,10 +4,9 @@ import { TechBadge } from '@/app/components/tech-badge';
 import { differenceInMonths, differenceInYears, format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { WorkExperience } from '@/app/types/work-experience';
 import { RichText } from '@/app/components/rich-text';
-import { fadeUpAnimation, techBadgeAnimation } from '@/app/lib/animations';
+import { techBadgeAnimation } from '@/app/lib/animations';
 
 type ExperienceItemProps = {
   experience: WorkExperience;
@@ -47,11 +46,7 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
       : `${months} mes${months > 1 ? 'es' : ''}`;
 
   return (
-    <motion.div
-      className="grid grid-cols-[100px,1fr] gap-4 md:gap-10"
-      {...fadeUpAnimation}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="grid grid-cols-[100px,1fr] gap-4 md:gap-10">
       <div className="flex items-center flex-col gap-4">
         <div className="rounded-full border border-gray-500 p-1">
           <Image
@@ -99,6 +94,6 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

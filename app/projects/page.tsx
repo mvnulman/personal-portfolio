@@ -20,8 +20,16 @@ const getPageData = async (): Promise<ProjectsPageData> => {
 
       const repos = reposResponse.data;
 
+      interface GitHubRepo {
+        name: string;
+        description: string | null;
+        owner: {
+          login: string;
+        };
+      }
+
       // Map GitHub repos to projects structure
-      const projects = repos.map((repo: any) => ({
+      const projects = (repos as GitHubRepo[]).map(repo => ({
         shortDescription: repo.description || 'Projeto desenvolvido no GitHub',
         slug: repo.name,
         title: repo.name
@@ -31,6 +39,14 @@ const getPageData = async (): Promise<ProjectsPageData> => {
           url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
         },
         technologies: [], // Could fetch languages separately if needed
+        pageThumbnail: {
+          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+        },
+        sections: [],
+        description: {
+          raw: { children: [] },
+          text: repo.description || '',
+        },
       }));
 
       return { projects };
