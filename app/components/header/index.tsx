@@ -19,23 +19,24 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <motion.header
-      className="absolute top-0 z-10 h-24 w-full flex items-center justify-center"
-      initial={{ top: -100 }}
-      animate={{ top: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container flex items-center justify-between">
-        <Link href="/">
-          <HiTerminal className="text-[#FF4858]" size={70} />
-        </Link>
+    <header className="absolute top-0 z-10 h-24 w-full flex items-center justify-center">
+      <motion.div
+        initial={{ top: -100 }}
+        animate={{ top: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container flex items-center justify-between">
+          <Link href="/">
+            <HiTerminal className="text-[#FF4858]" size={70} />
+          </Link>
 
-        <nav className="flex items-center gap-4 sm:gap-10">
-          {NAV_ITEMS.map(item => (
-            <NavItem {...item} key={item.label} />
-          ))}
-        </nav>
-      </div>
-    </motion.header>
+          <nav className="flex items-center gap-4 sm:gap-10">
+            {NAV_ITEMS.map(item => (
+              <NavItem {...item} key={item.label} />
+            ))}
+          </nav>
+        </div>
+      </motion.div>
+    </header>
   );
 };
