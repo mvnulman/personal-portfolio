@@ -16,23 +16,48 @@ type ProjectProps = {
 const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
     try {
       const repoResponse = await axios.get(
         `https://api.github.com/repos/${GITHUB_USERNAME}/${slug}`,
+        {
+          headers: GITHUB_TOKEN
+            ? {
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+              }
+            : {},
+        },
       );
 
       const repo = repoResponse.data;
+
+      // Fetch languages for the repository
+      const languagesResponse = await axios.get(
+        `https://api.github.com/repos/${GITHUB_USERNAME}/${slug}/languages`,
+        {
+          headers: GITHUB_TOKEN
+            ? {
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+              }
+            : {},
+        },
+      );
+
+      const languages = languagesResponse.data;
+      const technologies = Object.keys(languages).map((lang) => ({
+        name: lang,
+      }));
 
       // Map GitHub repo to project structure
       const project = {
         slug: repo.name,
         pageThumbnail: {
-          url: repo.owner.avatar_url,
+          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
         },
         thumbnail: {
-          url: repo.owner.avatar_url,
+          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
         },
         sections: [], // GitHub doesn't have sections, so empty
         title: repo.name
@@ -43,7 +68,7 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
           raw: { children: [] },
           text: repo.description || 'Sem descrição disponível.',
         },
-        technologies: [], // Could fetch languages
+        technologies,
         liveProjectUrl: repo.homepage || undefined,
         githubUrl: repo.html_url,
       };
@@ -118,11 +143,19 @@ export default async function Project({ params: { slug } }: ProjectProps) {
 export async function generateStaticParams() {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch slugs from GitHub
-    const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'mvnulman';
+    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'mvnulman';
+    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
     try {
       const reposResponse = await axios.get(
         `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10&type=public`,
+        {
+          headers: GITHUB_TOKEN
+            ? {
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+              }
+            : {},
+        },
       );
 
       const repos = reposResponse.data;

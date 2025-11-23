@@ -11,11 +11,19 @@ export const metadata = {
 const getPageData = async (): Promise<ProjectsPageData> => {
   if (!process.env.HYGRAPH_URL || !process.env.HYGRAPH_TOKEN) {
     // Fetch data from GitHub API
-    const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+    const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+    const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
     try {
       const reposResponse = await axios.get(
-        `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10&type=public`,
+        `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5&type=public`,
+        {
+          headers: GITHUB_TOKEN
+            ? {
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+              }
+            : {},
+        },
       );
 
       const repos = reposResponse.data;
@@ -28,30 +36,84 @@ const getPageData = async (): Promise<ProjectsPageData> => {
         };
       }
 
-      // Map GitHub repos to projects structure
-      const projects = (repos as GitHubRepo[]).map(repo => ({
-        shortDescription: repo.description || 'Projeto desenvolvido no GitHub',
-        slug: repo.name,
-        title: repo.name
-          .replace(/-/g, ' ')
-          .replace(/\b\w/g, (l: string) => l.toUpperCase()),
-        thumbnail: {
-          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
-        },
-        technologies: [], // Could fetch languages separately if needed
-        pageThumbnail: {
-          url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
-        },
-        sections: [],
-        description: {
-          raw: { children: [] },
-          text: repo.description || '',
-        },
-      }));
+      // Map GitHub repos to projects structure with languages
+      const projects = await Promise.all(
+        (repos as GitHubRepo[]).map(async (repo) => {
+          // Fetch languages for each repository
+          try {
+            const languagesResponse = await axios.get(
+              `https://api.github.com/repos/${repo.owner.login}/${repo.name}/languages`,
+              {
+                headers: GITHUB_TOKEN
+                  ? {
+                      Authorization: `Bearer ${GITHUB_TOKEN}`,
+                    }
+                  : {},
+              },
+            );
+
+            const languages = languagesResponse.data;
+            const technologies = Object.keys(languages).map((lang) => ({
+              name: lang,
+            }));
+
+            return {
+              shortDescription:
+                repo.description || 'Projeto desenvolvido no GitHub',
+              slug: repo.name,
+              title: repo.name
+                .replace(/-/g, ' ')
+                .replace(/\b\w/g, (l: string) => l.toUpperCase()),
+              thumbnail: {
+                url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+              },
+              technologies,
+              pageThumbnail: {
+                url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+              },
+              sections: [],
+              description: {
+                raw: { children: [] },
+                text: repo.description || '',
+              },
+            };
+          } catch (error) {
+            console.error(
+              `Error fetching languages for ${repo.name}:`,
+              error,
+            );
+            // Return project without technologies if language fetch fails
+            return {
+              shortDescription:
+                repo.description || 'Projeto desenvolvido no GitHub',
+              slug: repo.name,
+              title: repo.name
+                .replace(/-/g, ' ')
+                .replace(/\b\w/g, (l: string) => l.toUpperCase()),
+              thumbnail: {
+                url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+              },
+              technologies: [],
+              pageThumbnail: {
+                url: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+              },
+              sections: [],
+              description: {
+                raw: { children: [] },
+                text: repo.description || '',
+              },
+            };
+          }
+        }),
+      );
 
       return { projects };
     } catch (error) {
       console.error('Error fetching from GitHub:', error);
+      if (axios.isAxiosError(error)) {
+        console.error('Response status:', error.response?.status);
+        console.error('Response data:', error.response?.data);
+      }
       // Fallback to empty projects
       return { projects: [] };
     }

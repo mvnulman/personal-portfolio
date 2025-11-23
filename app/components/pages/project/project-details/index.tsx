@@ -28,6 +28,8 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       />
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60 z-[-1]" />
 
       <SectionTitle
         subtitle="projetos"
