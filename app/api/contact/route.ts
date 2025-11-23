@@ -17,10 +17,14 @@ export async function POST(request: Request) {
     const { name, email, message } = bodySchema.parse(body);
 
     // Check if RESEND_API_KEY is configured
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.trim() === '') {
+    if (
+      !process.env.RESEND_API_KEY ||
+      process.env.RESEND_API_KEY.trim() === ''
+    ) {
       console.warn('RESEND_API_KEY not configured. Email not sent.');
       return NextResponse.json({
-        message: 'Mensagem enviada com sucesso! (simulado - email não configurado)',
+        message:
+          'Mensagem enviada com sucesso! (simulado - email não configurado)',
       });
     }
 
@@ -59,7 +63,7 @@ export async function POST(request: Request) {
     console.error('Error sending email:', error);
     return NextResponse.json(
       { message: 'Erro ao enviar mensagem. Tente novamente.' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

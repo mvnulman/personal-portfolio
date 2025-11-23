@@ -3,16 +3,19 @@
 ## 🚀 Configuração Rápida
 
 ### 1. Criar conta no Resend
+
 - Acesse [resend.com](https://resend.com)
 - Crie sua conta gratuita
 - Verifique seu email
 
 ### 2. Obter API Key
+
 - Vá para Dashboard → API Keys
 - Clique em "Create API Key"
 - Copie a chave gerada
 
 ### 3. Configurar variáveis de ambiente
+
 Edite o arquivo `.env.local`:
 
 ```env
@@ -22,6 +25,7 @@ YOUR_EMAIL=seu-email@gmail.com
 ```
 
 ### 4. Testar
+
 - Reinicie o servidor: `pnpm dev`
 - Preencha o formulário de contato
 - Verifique seu email!
@@ -37,12 +41,14 @@ YOUR_EMAIL=seu-email@gmail.com
 ## 🔧 Solução de Problemas
 
 ### Email não chega?
+
 1. Verifique se o `RESEND_API_KEY` está correto
 2. Confirme se o `YOUR_EMAIL` está correto
 3. Verifique a aba "Emails" no dashboard do Resend
 4. Veja os logs do console do navegador/desenvolvedor
 
 ### Erro 500?
+
 - Verifique se as variáveis estão definidas no `.env.local`
 - Certifique-se de que o servidor foi reiniciado após mudanças
 
