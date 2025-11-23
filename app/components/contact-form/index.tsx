@@ -50,37 +50,44 @@ export const ContactForm = () => {
           title="Vamos trabalhar juntos? Entre em contato"
           className="items-center text-center"
         />
-        <motion.form
+        <form
           className="mt-12 w-full flex flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
-          {...fadeUpAnimation}
         >
-          <input
-            placeholder="Nome"
-            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
-            {...register('name')}
-          />
-          <input
-            placeholder="E-mail"
-            type="email"
-            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
-            {...register('email')}
-          />
-          <textarea
-            placeholder="Mensagem"
-            className="resize-none w-full h-[138px] bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
-            {...register('message')}
-            maxLength={500}
-          />
+          <motion.div {...fadeUpAnimation}>
+            <input
+              placeholder="Nome"
+              className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
+              {...register('name')}
+            />
+          </motion.div>
+          <motion.div {...fadeUpAnimation}>
+            <input
+              placeholder="E-mail"
+              type="email"
+              className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
+              {...register('email')}
+            />
+          </motion.div>
+          <motion.div {...fadeUpAnimation}>
+            <textarea
+              placeholder="Mensagem"
+              className="resize-none w-full h-[138px] bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-[#FF4858]"
+              {...register('message')}
+              maxLength={500}
+            />
+          </motion.div>
 
-          <div className="relative w-max mx-auto mt-6">
-            <Button className="z-[2] relative" disabled={isSubmitting}>
-              Enviar mensagem
-              <HiArrowNarrowRight size={18} />
-            </Button>
-            <div className="absolute inset-0 bg-[#FF4858] blur-2xl opacity-20" />
-          </div>
-        </motion.form>
+          <motion.div {...fadeUpAnimation}>
+            <div className="relative w-max mx-auto mt-6">
+              <Button className="z-[2] relative" disabled={isSubmitting}>
+                Enviar mensagem
+                <HiArrowNarrowRight size={18} />
+              </Button>
+              <div className="absolute inset-0 bg-[#FF4858] blur-2xl opacity-20" />
+            </div>
+          </motion.div>
+        </form>
       </div>
     </section>
   );
