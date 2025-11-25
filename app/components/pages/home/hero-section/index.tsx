@@ -9,6 +9,8 @@ import { HomePageInfo } from '@/app/types/page-info';
 import { CMSIcon } from '@/app/components/cms-icon';
 import { RichText } from '@/app/components/rich-text';
 import { techBadgeAnimation } from '@/app/lib/animations';
+import Lottie from 'lottie-react';
+import animationData from '@/app/lib/software-development.json';
 
 type HeroSectionProps = {
   homeInfo: HomePageInfo;
@@ -55,13 +57,13 @@ export const HeroSection = ({ homeInfo }: HeroSectionProps) => {
                 <HiArrowNarrowRight size={18} />
               </Button>
 
-              <div className="text-2xl text-gray-600 flex items-center h-20 gap-3">
+              <div className="text-2xl text-gray-100 flex items-center h-20 gap-3">
                 {homeInfo.socials.map((contact, i) => (
                   <a
                     href={contact.url}
                     key={`contact-${i}`}
                     target="_blank"
-                    className="hover:text-gray-100 transition-colors"
+                    className="hover:text-gray-400 transition-colors"
                     rel="noreferrer"
                   >
                     <CMSIcon icon={contact.iconSvg} />
@@ -77,14 +79,15 @@ export const HeroSection = ({ homeInfo }: HeroSectionProps) => {
           exit={{ opacity: 0, y: 200, scale: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="p-1 bg-gray-300 rounded-lg origin-center">
-            <Image
-              className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
-              width={420}
-              height={404}
-              src={homeInfo.profilePicture.url}
-              alt="Foto de perfil do Marcos Vinícius"
-            />
+          <div className="overflow-hidden">
+            <div className="relative w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] overflow-hidden mb-6 lg:mb-0">
+              <Lottie
+                animationData={animationData}
+                className="w-[300px] h-[360px] lg:w-[420px] lg:h-[460px] absolute top-0 left-0"
+                loop={true}
+                autoplay={true}
+              />
+            </div>
           </div>
         </motion.div>
       </div>

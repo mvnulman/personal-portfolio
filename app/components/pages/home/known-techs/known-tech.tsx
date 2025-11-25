@@ -48,7 +48,7 @@ export const KnownTech = ({ tech }: KnownTechProps) => {
   const IconComponent = techIcons[tech.name];
 
   return (
-    <div className="p-6 rounded-lg bg-gray-600/20 text-gray-500 flex flex-col gap-2 hover:text-[#FF6B7A] hover:bg-gray-600/30 transition-all">
+    <div className="p-6 rounded-lg bg-gray-600/20 text-gray-500 flex flex-col gap-2 hover:text-[#FF6B7A] hover:bg-gray-600/30 hover:scale-105 transition-all">
       <div className="flex items-center justify-between">
         <p className="font-medium">{tech.name}</p>
         {IconComponent ? (
@@ -57,8 +57,6 @@ export const KnownTech = ({ tech }: KnownTechProps) => {
           <CMSIcon icon={tech.iconSvg} />
         )}
       </div>
-
-      <span>{relativeTime} de experiência</span>
     </div>
   );
 };

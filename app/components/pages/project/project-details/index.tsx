@@ -74,8 +74,10 @@ export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         )}
       </motion.div>
       <Link href="/projects">
-        <HiArrowNarrowLeft size={20} />
-        Voltar para projetos
+        <Button className="bg-transparent border border-[#aeaeae] text-[#ffffff] hover:bg-[#FF4858] hover:text-white">
+          <HiArrowNarrowLeft size={20} />
+          Voltar para projetos
+        </Button>
       </Link>
     </section>
   );

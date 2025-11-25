@@ -1,12 +1,12 @@
 import type { Project } from '@/app/types/projects';
 import Image from 'next/image';
+import { TechBadge } from '@/app/components/tech-badge';
 
 type ProjectCardProps = {
   project: Project;
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const technologies = project.technologies.map(x => x.name).join(', ');
   return (
     <div className="rounded-lg h-[436px] flex flex-col bg-gray-800 overflow-hidden group transition-all opacity-70 hover:opacity-100">
       <div className="w-full h-48 overflow-hidden">
@@ -30,9 +30,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.shortDescription}
         </p>
 
-        <span className="text-gray-300 text-sm font-medium block mt-auto truncate">
-          {technologies}
-        </span>
+        <div className="flex gap-x-2 gap-y-2 flex-wrap mt-auto">
+          {project.technologies.map((tech, index) => (
+            <TechBadge key={index} name={tech.name} />
+          ))}
+        </div>
       </div>
     </div>
   );
