@@ -10,7 +10,7 @@ export default function NotFound() {
         Página não encontrada
       </h2>
       <Link href="/">
-        <Button>
+        <Button className="bg-transparent border border-[#aeaeae] text-[#ffffff] hover:bg-[#FF4858] hover:text-white">
           <HiArrowNarrowLeft size={20} />
           Voltar para Home
         </Button>

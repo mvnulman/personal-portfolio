@@ -20,7 +20,7 @@ const mockPageData: HomePageData = {
             type: 'paragraph',
             children: [
               {
-                text: 'Olá! Sou Marcos Vinicius, Desenvolvedor de Software com mais de 3 anos de experiência, focado na criação de aplicações web intuitivas, responsivas e escaláveis. Tenho foco em boas práticas de código e na busca constante por uma excelente experiência do usuário. Atuo na implementação de novas funcionalidades, otimização de performance e definição de padrões de componentes reutilizáveis que tornam o código mais limpo e escalável.',
+                text: 'Desenvolvedor de Software com mais de 3 anos de experiência, focado na criação de aplicações web intuitivas, responsivas e escaláveis. Tenho foco em boas práticas de código e na busca constante por uma excelente experiência do usuário. Atuo na implementação de novas funcionalidades, otimização de performance e definição de padrões de componentes reutilizáveis que tornam o código mais limpo e escalável.',
               },
             ],
           },
@@ -279,24 +279,7 @@ const getPageData = async (): Promise<HomePageData> => {
       // Map GitHub data to the expected structure
       const pageData: HomePageData = {
         page: {
-          introduction: {
-            raw: {
-              children: [
-                {
-                  type: 'paragraph',
-                  children: [
-                    {
-                      text:
-                        user.bio ||
-                        `Olá! Sou ${
-                          user.name || user.login
-                        }, desenvolvedor apaixonado por tecnologia.`,
-                    },
-                  ],
-                },
-              ],
-            },
-          },
+          introduction: mockPageData.page.introduction,
           technologies: [], // Can be added manually in mock data
           profilePicture: {
             url: user.avatar_url,

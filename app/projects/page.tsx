@@ -3,6 +3,8 @@ import { ProjectsList } from '../components/pages/projects/projects-list';
 import { ProjectsPageData } from '../types/page-info';
 import { fetchHygraphQuery } from '../utils/fetch-hygraph-query';
 import axios from 'axios';
+import { SiGithub } from 'react-icons/si';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'Projetos',
@@ -16,7 +18,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
 
     try {
       const reposResponse = await axios.get(
-        `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5&type=public`,
+        `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10&type=public`,
         {
           headers: GITHUB_TOKEN
             ? {
@@ -26,7 +28,14 @@ const getPageData = async (): Promise<ProjectsPageData> => {
         },
       );
 
-      const repos = reposResponse.data;
+      const repos = reposResponse.data
+        .filter(
+          (repo: any) =>
+            !['mvnulman', 'portfolio-tutorial-2023', 'personal-portfolio'].some(
+              excluded => repo.name.toLowerCase().includes(excluded),
+            ),
+        )
+        .slice(0, 4);
 
       interface GitHubRepo {
         name: string;
@@ -104,6 +113,54 @@ const getPageData = async (): Promise<ProjectsPageData> => {
         }),
       );
 
+      // Add specific projects
+      projects.unshift(
+        {
+          shortDescription:
+            'Uma aplicação de lista de tarefas simples e intuitiva',
+          slug: 'todo-list',
+          title: 'Todo List',
+          thumbnail: {
+            url: 'https://opengraph.githubassets.com/1/mvnulman/todo-list',
+          },
+          technologies: [
+            { name: 'HTML' },
+            { name: 'CSS' },
+            { name: 'JavaScript' },
+          ],
+          pageThumbnail: {
+            url: 'https://opengraph.githubassets.com/1/mvnulman/todo-list',
+          },
+          sections: [],
+          description: {
+            raw: { children: [] },
+            text: 'Aplicação web para gerenciamento de tarefas diárias.',
+          },
+        },
+        {
+          shortDescription:
+            'Slider de frames com animações suaves usando Framer Motion',
+          slug: 'motion-frame-slider',
+          title: 'Motion Frame Slider',
+          thumbnail: {
+            url: 'https://opengraph.githubassets.com/1/mvnulman/motion-frame-slider',
+          },
+          technologies: [
+            { name: 'React' },
+            { name: 'Framer Motion' },
+            { name: 'TypeScript' },
+          ],
+          pageThumbnail: {
+            url: 'https://opengraph.githubassets.com/1/mvnulman/motion-frame-slider',
+          },
+          sections: [],
+          description: {
+            raw: { children: [] },
+            text: 'Componente de slider com transições animadas.',
+          },
+        },
+      );
+
       return { projects };
     } catch (error) {
       console.error('Error fetching from GitHub:', error);
@@ -145,6 +202,19 @@ export default async function Projects() {
     <>
       <PageIntroduction />
       <ProjectsList projects={projects} />
+      <section className="container py-16 -mt-20 text-center">
+        <p className="text-gray-400 mb-4">
+          Para acessar os demais projetos, clique aqui:
+        </p>
+        <Link
+          href={`https://github.com/${process.env.GITHUB_USERNAME}`}
+          target="_blank"
+          className="inline-flex items-center gap-2 bg-[#FF6B7A] text-white px-6 py-3 rounded-lg hover:bg-[#FF4858] transition-colors"
+        >
+          <SiGithub size={20} />
+          Ver mais projetos
+        </Link>
+      </section>
     </>
   );
 }
