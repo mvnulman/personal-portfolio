@@ -1,4 +1,4 @@
-# 🚀 Marcos Vinícius - Full-Stack Developer Portfolio
+# 🚀 Marcos Vinícius - Sotfware Developer Portfolio
 
 A modern, responsive, and professional portfolio website built with cutting-edge web technologies. Showcasing my journey as a full-stack developer with expertise in React, Next.js, TypeScript, and modern web development practices.
 
