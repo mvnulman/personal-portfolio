@@ -8,9 +8,6 @@ const bodySchema = z.object({
   message: z.string(),
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const YOUR_EMAIL = process.env.YOUR_EMAIL!;
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -27,6 +24,10 @@ export async function POST(request: Request) {
           'Mensagem enviada com sucesso! (simulado - email não configurado)',
       });
     }
+
+    // Initialize Resend only when needed
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const YOUR_EMAIL = process.env.YOUR_EMAIL!;
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
