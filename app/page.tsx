@@ -146,6 +146,35 @@ const mockPageData: HomePageData = {
   workExperiences: [
     {
       companyLogo: {
+        url: '',
+      },
+      role: 'Desenvolvedor Frontend',
+      companyName: 'Laclaw Technology',
+      companyUrl: 'https://laclaw.com.br/',
+      startDate: '2026-02-19',
+      technologies: [
+        { name: 'React' },
+        { name: 'TypeScript' },
+        { name: 'Tailwind CSS' },
+        { name: 'Material UI' },
+      ],
+      description: {
+        raw: {
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  text: 'Atualmente, trabalho criando e evoluindo interfaces e produtos web que apoiam projetos de revisão tributária e análises baseadas em cruzamento de dados. Trabalho em colaboração com times multidisciplinares para entregar experiências claras, seguras e performáticas, com foco em usabilidade, padronização de UI e consistência do produto.',
+                },
+              ],
+            },
+          ],
+        },
+      },
+    },
+    {
+      companyLogo: {
         url: 'https://troupebrasil.com.br/wp-content/uploads/2021/07/logo_tt-jpg-1024x210.jpg',
       },
       role: 'Desenvolvedor Frontend',
@@ -169,7 +198,7 @@ const mockPageData: HomePageData = {
               type: 'paragraph',
               children: [
                 {
-                  text: 'Atualmente, contribuo para o desenvolvimento de um sistema de gestão educacional adotado por diversas prefeituras do interior de São Paulo, incluindo Valinhos, Cosmópolis e Bragança Paulista. Meu trabalho é focado em melhorar a experiência diária de professores, equipes escolares e alunos por meio de soluções web eficientes e centradas no usuário.',
+                  text: 'Contribuí para o desenvolvimento de um sistema de gestão educacional adotado por diversas prefeituras do interior de São Paulo, incluindo Valinhos, Cosmópolis e Bragança Paulista. Meu trabalho é focado em melhorar a experiência diária de professores, equipes escolares e alunos por meio de soluções web eficientes e centradas no usuário.',
                 },
               ],
             },
