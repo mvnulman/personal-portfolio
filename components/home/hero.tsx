@@ -66,23 +66,13 @@ export function Hero() {
             }}
           >
             <h1
-              className="display"
+              className="display hero-headline"
               style={{ fontSize: 'clamp(40px, 8vw, 128px)' }}
             >
-              <span style={{ display: 'block', color: 'var(--ink)' }}>
-                {phrase[0]}
-              </span>
-              <span
-                className="text-gradient"
-                style={{ display: 'block' }}
-              >
-                {phrase[1]}
-              </span>
-              <span style={{ display: 'block', color: 'var(--ink)' }}>
-                {phrase[2]}
-              </span>
-              <span style={{ display: 'block', color: 'var(--ink)' }}>
-                {phrase[3]}
+              <span style={{ color: 'var(--ink)' }}>{phrase[0]}</span>
+              <span className="text-gradient">{phrase[1]}</span>
+              <span style={{ color: 'var(--ink)' }}>
+                {phrase[2]} {phrase[3]}
               </span>
             </h1>
             <div

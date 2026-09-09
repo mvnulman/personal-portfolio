@@ -302,6 +302,11 @@
   box-shadow: 0 12px 40px var(--accent-glow);
 }
 
+/* Headline do hero (desktop): palavras empilhadas */
+.hero-headline > span {
+  display: block;
+}
+
 /* ============================================================
    RESPONSIVIDADE (mobile-first colapso de grids)
    As classes .stack e .stack-md usam !important para vencer
@@ -345,5 +350,19 @@
     align-items: center !important;
     justify-content: center !important;
     justify-self: stretch !important;
+  }
+  /* Headline do hero: 2 linhas no mobile (VAMOS CONSTRUIR / ALGO HOJE) */
+  .hero-headline {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    column-gap: 0.28em !important;
+    font-size: clamp(30px, 9.5vw, 40px) !important;
+  }
+  .hero-headline > span {
+    display: inline;
+    white-space: nowrap;
+  }
+  .hero-headline > span:last-child {
+    flex-basis: 100%;
   }
 }
