@@ -35,11 +35,11 @@ export default async function ProjectsPage({
           <Reveal key={c.slug} as="div" variant="blur">
             <Link
               href={`/projects/${c.slug}`}
-              className="card group hover-lift"
+              className="card group hover-lift stack"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'minmax(0, 1fr) auto',
-                gap: 32,
+                gap: 24,
                 padding: 28,
                 marginBottom: 16,
                 alignItems: 'center',

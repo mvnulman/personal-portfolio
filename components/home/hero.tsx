@@ -56,6 +56,7 @@ export function Hero() {
 
         <StaggerItem>
           <div
+            className="stack"
             style={{
               display: 'grid',
               gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',
@@ -85,6 +86,7 @@ export function Hero() {
               </span>
             </h1>
             <div
+              className="lottie-hide-mobile"
               style={{
                 transform: 'translateY(-4%)',
               }}
@@ -96,7 +98,7 @@ export function Hero() {
 
         <StaggerItem>
           <div
-            className="ed-grid"
+            className="stack"
             style={{
               marginTop: 48,
               alignItems: 'end',
@@ -116,6 +118,7 @@ export function Hero() {
               {t('intro')}
             </p>
             <div
+              className="socials-mobile"
               style={{
                 display: 'flex',
                 gap: 10,

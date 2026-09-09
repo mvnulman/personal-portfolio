@@ -158,6 +158,18 @@
   backdrop-filter: blur(8px);
 }
 
+/* Ações do case (Demo ao vivo / Repositório) */
+.case-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* Seta maior apenas nos botões do case */
+.case-arrow {
+  width: 0.85em !important;
+  height: 1em !important;
+}
+
 .section-topic {
   color: var(--accent);
 }
@@ -288,4 +300,50 @@
 }
 .hover-glow:hover {
   box-shadow: 0 12px 40px var(--accent-glow);
+}
+
+/* ============================================================
+   RESPONSIVIDADE (mobile-first colapso de grids)
+   As classes .stack e .stack-md usam !important para vencer
+   os estilos inline de gridTemplateColumns.
+   ============================================================ */
+
+/* Empilha em telas até 768px (aplica em qualquer lugar que tenha a classe) */
+@media (max-width: 768px) {
+  .stack {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  /* Hero: esconder a animação Lottie no mobile */
+  .lottie-hide-mobile {
+    display: none !important;
+  }
+  /* Reduzir espaçamento do hero e títulos */
+  .display {
+    line-height: 1.05 !important;
+  }
+  /* Menu mobile: garantir que o texto não vaze */
+  .mobile-menu a {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  /* Badges sociais no hero: permitir quebra em mobile */
+  .socials-mobile {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    white-space: normal !important;
+  }
+  /* Cards de projeto: seta alinhada à esquerda quando empilhado */
+  .card.stack .pen-arrow {
+    justify-self: start !important;
+  }
+  /* Ações do case: em linha horizontal centralizada no mobile */
+  .case-actions {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: stretch !important;
+  }
 }

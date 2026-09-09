@@ -38,7 +38,7 @@ export async function generateMetadata({
     metadataBase: new URL(env),
     title: {
       default: t('title'),
-      template: `%s · Marcos Vinicius Nulnan`,
+      template: `%s · Marcos Vinicius Nulman`,
     },
     description: t('description'),
     icons: {
@@ -54,7 +54,7 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       type: 'website',
-      siteName: 'Marcos Vinicius Nulnan',
+      siteName: 'Marcos Vinicius Nulman',
       images: ['/images/covers/feed-newsapi.jpg'],
     },
   };

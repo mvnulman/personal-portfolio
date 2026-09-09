@@ -21,34 +21,36 @@ export function BackToTop() {
       type="button"
       onClick={scrollTop}
       aria-label="Voltar ao topo"
-      className="btn btn-ghost"
       style={{
         position: 'fixed',
-        right: 24,
-        bottom: 24,
-        zIndex: 60,
-        padding: '12px',
+        right: 16,
+        bottom: 20,
+        zIndex: 90,
+        width: 52,
+        height: 52,
         borderRadius: '50%',
-        width: 48,
-        height: 48,
+        display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'var(--ink)',
+        color: '#fff',
+        background: 'var(--accent)',
+        border: 'none',
+        cursor: 'pointer',
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',
         transform: visible ? 'translateY(0)' : 'translateY(12px)',
         transition:
           'opacity var(--t-med), transform var(--t-med), box-shadow var(--t-fast)',
-        boxShadow: visible ? '0 8px 24px var(--accent-glow)' : 'none',
+        boxShadow: visible ? '0 10px 28px var(--accent-glow)' : 'none',
       }}
     >
       <svg
-        width="20"
-        height="20"
+        width="22"
+        height="22"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden

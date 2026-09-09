@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const c = getCase(slug);
   if (!c) return {};
-  const title = `${c.title[locale as 'pt' | 'en']} · Marcos Vinicius Nulnan`;
+  const title = `${c.title[locale as 'pt' | 'en']} · Marcos Vinicius Nulman`;
   return { title };
 }
 
@@ -69,10 +69,11 @@ export default async function CasePage({ params }: Props) {
         )}
 
         <div
+          className="stack"
           style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',
-            gap: 48,
+            gap: 32,
             marginTop: 40,
             alignItems: 'end',
           }}
@@ -90,16 +91,16 @@ export default async function CasePage({ params }: Props) {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, justifySelf: 'end' }}>
+          <div className="case-actions" style={{ gap: 12, justifySelf: 'end' }}>
             {c.liveUrl && (
               <a href={c.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 {t('demo')}
-                <PenArrow />
+                <PenArrow className="case-arrow" />
               </a>
             )}
             <a href={c.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               {t('repo')}
-              <PenArrow />
+              <PenArrow className="case-arrow" />
             </a>
           </div>
         </div>
@@ -117,11 +118,11 @@ export default async function CasePage({ params }: Props) {
 
       {/* Problem / Solution */}
       <section
-        className="wrap"
+        className="wrap stack"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: 48,
+          gap: 32,
           marginTop: 32,
         }}
       >
@@ -146,7 +147,7 @@ export default async function CasePage({ params }: Props) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))',
               gap: 16,
             }}
           >

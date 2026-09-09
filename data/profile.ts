@@ -24,6 +24,7 @@ export const skills: { name: string; group: 'frontend' | 'backend' | 'tooling' }
   { name: 'Styled-components', group: 'frontend' },
   { name: 'Vite', group: 'frontend' },
   { name: 'Node.js', group: 'backend' },
+  { name: 'NestJS', group: 'backend' },
   { name: 'Express.js', group: 'backend' },
   { name: 'PostgreSQL', group: 'backend' },
   { name: 'REST APIs', group: 'backend' },

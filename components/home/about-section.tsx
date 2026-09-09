@@ -16,6 +16,7 @@ export async function AboutSection({ locale }: { locale: string }) {
       style={{ paddingBlock: 96, paddingBottom: 32, borderTop: '1px solid var(--line)' }}
     >
       <div
+        className="stack"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',
@@ -86,6 +87,7 @@ export async function AboutSection({ locale }: { locale: string }) {
         {experiences.map((e) => (
           <Reveal key={e.company} variant="up">
             <div
+              className="stack"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',

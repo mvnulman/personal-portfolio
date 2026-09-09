@@ -73,6 +73,7 @@ export function ContactSection() {
       </p>
 
       <div
+        className="stack"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',

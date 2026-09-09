@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Marcos Vinicius Nulnan',
+  name: 'Marcos Vinicius Nulman',
   shortName: 'mv',
   handle: 'mvnulman',
   role: 'Desenvolvedor de software',

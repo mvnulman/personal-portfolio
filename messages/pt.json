@@ -9,7 +9,7 @@
   },
   "hero": {
     "roleLine": "Desenvolvedor de software · São Paulo, Brasil",
-    "phrase": ["LET'S", "BUILD", "SOMETHING", "TODAY"],
+    "phrase": ["VAMOS", "CONSTRUIR", "ALGO", "HOJE"],
     "intro": "Resultados em Frontend Architecture, Design Systems, componentização e performance web. Conecto regras de negócio, interfaces, APIs e performance para transformar sistemas complexos em experiências fluidas e escaláveis, projetadas, construídas e colocadas em produção.",
     "cta": "Ver projetos"
   },
@@ -85,7 +85,7 @@
     "madeWith": "Construído com Next.js · Deploy no Vercel"
   },
   "meta": {
-    "title": "Marcos Vinicius Nulnan · Desenvolvedor Frontend",
+    "title": "Marcos Vinicius Nulman · Desenvolvedor Frontend",
     "description": "Desenvolvedor Frontend especializado em React, TypeScript e Next.js. Cria interfaces modernas, performáticas e bilíngues. Confira meus projetos e cases."
   }
 }
