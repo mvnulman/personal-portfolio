@@ -1,20 +1,21 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'media.graphassets.com',
-      'avatars.githubusercontent.com',
-      'troupebrasil.com.br',
-      'picsum.photos',
-      'opengraph.githubassets.com',
-    ],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.graphassets.com',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'opengraph.githubassets.com',
       },
     ],
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

@@ -1,17 +1,20 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
-import { z } from 'zod';
-
-const bodySchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  message: z.string(),
-});
+import { contactSchema } from '@/lib/contact-schema';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, message } = bodySchema.parse(body);
+    const parsed = contactSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { message: 'Dados inválidos', errors: parsed.error.flatten().fieldErrors },
+        { status: 400 },
+      );
+    }
+
+    const { name, email, message } = parsed.data;
 
     // Check if RESEND_API_KEY is configured
     if (
@@ -30,7 +33,7 @@ export async function POST(request: Request) {
     const YOUR_EMAIL = process.env.YOUR_EMAIL!;
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: [YOUR_EMAIL],
       subject: `Nova mensagem de contato - ${name}`,
