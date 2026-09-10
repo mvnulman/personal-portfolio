@@ -1,271 +1,206 @@
-# 🚀 Marcos Vinícius - Sotfware Developer Portfolio
+# Marcos Vinícius — Portfolio
 
-A modern, responsive, and professional portfolio website built with cutting-edge web technologies. Showcasing my journey as a software developer with expertise in React, Next.js, TypeScript, and modern web development practices.
+A bilingual (PT/EN) personal portfolio built with **Next.js, React and TypeScript**, designed as an editorial-style case study experience. It curates a set of highlighted projects, pulls real repositories from the GitHub API, and presents each one in a dedicated case page with live screenshots, problem/solution narrative, features and tech stack.
 
-![Portfolio Preview](./public/images/portfolio-preview.png)
-
-## ✨ Features
-
-- **🎨 Modern Design**: Clean, professional UI with smooth animations using Framer Motion
-- **📱 Fully Responsive**: Optimized for all devices - desktop, tablet, and mobile
-- **🌙 Dark Theme**: Beautiful dark theme with carefully chosen color palette
-- **⚡ Fast Performance**: Built with Next.js 13 for optimal loading speeds
-- **🔍 SEO Optimized**: Proper meta tags and semantic HTML for better search visibility
-- **📧 Contact Form**: Functional contact form with validation
-- **🎯 Project Showcase**: Highlighted projects with GitHub integration
-- **💼 Professional Experience**: Detailed work experience timeline
-- **🎓 Skills & Technologies**: Interactive tech stack display
-- **🌐 Multi-language Ready**: Structured for easy internationalization
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-- **Next.js 13** - React framework with App Router
-- **React 19** - Latest React with concurrent features
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-
-### UI/UX & Animations
-
-- **Framer Motion** - Smooth animations and transitions
-- **React Icons** - Beautiful icon library
-- **Tailwind Merge** - Efficient class merging
-
-### Backend & APIs
-
-- **Next.js API Routes** - Serverless API endpoints
-- **Axios** - HTTP client for API calls
-- **GitHub API** - Dynamic project fetching
-
-### Development Tools
-
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **TypeScript** - Type checking
-- **PostCSS** - CSS processing
-
-### Content Management
-
-- **Hygraph CMS** - Headless CMS (optional)
-- **Rich Text Support** - Advanced content formatting
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm (recommended) or npm/yarn
-- GitHub account (for API integration)
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/mvnulman/personal-portfolio-2025.git
-   cd personal-portfolio-2025
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   pnpm install
-   # or
-   npm install
-   ```
-
-3. **Environment Setup**
-
-   ```bash
-   cp .env.local.example .env.local
-   ```
-
-   Configure your environment variables:
-
-   ```env
-   # GitHub Integration (Optional)
-   GITHUB_USERNAME=mvnulman
-   GITHUB_TOKEN=your_github_token_here
-
-   # Hygraph CMS (Optional)
-   HYGRAPH_URL=your_hygraph_url
-   HYGRAPH_TOKEN=your_hygraph_token
-
-   # Email Integration (Resend - Recommended)
-   RESEND_API_KEY=your_resend_api_key
-   YOUR_EMAIL=your-email@gmail.com
-   ```
-
-4. **Run the development server**
-
-   ```bash
-   pnpm dev
-   # or
-   npm run dev
-   ```
-
-5. **Open your browser**
-   ```
-   http://localhost:3001
-   ```
-
-## 📁 Project Structure
-
-```
-portfolio-tutorial-2023/
-├── app/                          # Next.js App Router
-│   ├── api/                      # API routes
-│   │   └── contact/              # Contact form handler
-│   ├── components/               # Reusable components
-│   │   ├── button/               # Button component
-│   │   ├── cms-icon/             # CMS icon renderer
-│   │   ├── contact-form/         # Contact form
-│   │   ├── footer/               # Site footer
-│   │   ├── header/               # Site header
-│   │   ├── link/                 # Link component
-│   │   ├── pages/                # Page-specific components
-│   │   │   ├── home/             # Home page sections
-│   │   │   └── projects/         # Projects page
-│   │   └── rich-text/            # Rich text renderer
-│   ├── lib/                      # Utility libraries
-│   ├── types/                    # TypeScript definitions
-│   ├── utils/                    # Helper functions
-│   └── globals.css               # Global styles
-├── public/                       # Static assets
-│   └── images/                   # Image assets
-├── .env.local                    # Environment variables
-├── next.config.js               # Next.js configuration
-├── tailwind.config.js           # Tailwind CSS config
-├── tsconfig.json                # TypeScript config
-└── package.json                 # Dependencies
-```
-
-## 🎯 Key Components
-
-### Hero Section
-
-- Dynamic introduction with GitHub bio integration
-- Social media links
-- Technology badges with animations
-- Responsive design
-
-### Projects Showcase
-
-- GitHub repository integration
-- Project cards with hover effects
-- Technology tags
-- Live demo and GitHub links
-
-### Work Experience
-
-- Professional timeline
-- Company logos and details
-- Technology stacks used
-- Achievement highlights
-
-### Skills & Technologies
-
-- Interactive tech badges
-- Categorized skills
-- Experience levels
-- Hover animations
-
-### Contact Form
-
-- Form validation with React Hook Form
-- Email integration
-- Success/error handling
-- Responsive design
-
-## 🔧 Configuration
-
-### GitHub Integration
-
-To enable dynamic project fetching from GitHub:
-
-1. Create a GitHub Personal Access Token
-2. Add to `.env.local`:
-   ```env
-   GITHUB_USERNAME=your_username
-   GITHUB_TOKEN=your_token
-   ```
-
-### Email Integration (Resend)
-
-To enable email notifications from the contact form:
-
-1. **Create a Resend account** at [resend.com](https://resend.com)
-2. **Get your API key** from the dashboard
-3. **Verify your domain** (or use the default `onboarding@resend.dev` for testing)
-4. **Add to `.env.local`**:
-   ```env
-   RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
-   YOUR_EMAIL=your-email@gmail.com
-   ```
-
-**Features:**
-- ✅ 3,000 emails/month free
-- ✅ Beautiful HTML emails
-- ✅ Reliable delivery
-- ✅ Easy setup
-
-### Hygraph CMS (Optional)
-
-For dynamic content management:
-
-1. Create a Hygraph project
-2. Configure content models
-3. Add credentials to `.env.local`
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive with breakpoints for:
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
-
-## 🎨 Color Palette
-
-- **Primary**: `#FF4858` (Coral Red)
-- **Secondary**: `#FF6B7A` (Light Coral)
-- **Background**: Dark theme with gray variations
-- **Text**: Light grays for optimal contrast
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Configure environment variables
-3. Deploy automatically on push
-
-### Other Platforms
-
-- **Netlify**: Connect repo and configure build settings
-- **Railway**: Deploy with Docker or Node.js
-- **Heroku**: Traditional hosting platform
-
-## 🤝 Contributing
-
-While this is a personal portfolio, feel free to:
-
-- Report bugs
-- Suggest improvements
-- Submit pull requests for enhancements
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📞 Contact
-
-**Marcos Vinícius**
-
-- **LinkedIn**: [https://linkedin.com/in/mvnulman]
-- **GitHub**: [https://github.com/mvnulman]
+The site has its own design system — a dark premium look with a single magenta (`#f05`) accent, rounded cards, hand-drawn arrows and smooth scroll-reveal animations powered by `motion`.
 
 ---
 
-**Built with ❤️ using Next.js, TypeScript, and Tailwind CSS**
+## Goal
+
+The main goal of this project is to serve as a professional showcase: present the developer's experience, skills and selected work in a way that feels considered and polished, while keeping the content easy to maintain.
+
+It also explores how a portfolio can be **automatically kept up to date**:
+
+| Concern | How it is handled |
+| --- | --- |
+| Featured projects | Manually curated order in `config/site.ts` → `projects.featured` |
+| Real repositories | Fetched from the GitHub REST API with caching (`revalidate: 3600`) |
+| Conversation / content | Local typed data files (`data/profile.ts`, `data/cases.ts`) — no CMS needed |
+| Bilingual | `next-intl` with `pt` (default, unprefixed) and `en` (`/en`) locales |
+| Contact form | `react-hook-form` + `zod` validation, sent via Resend |
+
+## Learning objectives
+
+- Build a modern App Router application with Next.js 16 and React 19.
+- Implement internationalization (i18n) with `next-intl`, including locale routing and localized metadata.
+- Integrate a third-party API (GitHub) with server-side fetch and stale-while-revalidate caching.
+- Design a cohesive design system with CSS variables and a dark/light theme toggle.
+- Create fluid scroll animations and micro-interactions without a heavy animation framework.
+- Validate a form client and server side with a shared `zod` schema.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- **Next.js 16** — App Router, RSC, dynamic routes and static generation
+- **React 19** — with server and client components
+- **TypeScript** — strict typing across the app
+
+### Styling & UI
+
+- **Tailwind CSS** — utility-first styling, custom design tokens
+- **CSS Variables** — theming tokens for dark/light mode
+- **Framer `motion`** — scroll-reveal, stagger and hover animations
+- **Lottie** (`lottie-react`) — programming-themed animated asset in the hero
+
+### i18n
+
+- **next-intl** — locale routing, translation dictionaries and `hreflang` alternates
+
+### Data & APIs
+
+- **GitHub REST API** — repository listing (with token for higher rate limit)
+- **React Query** — server-state hooks on the featured projects
+
+### Forms & Validation
+
+- **react-hook-form** — form state handling
+- **zod** — shared validation schema (client + API route)
+- **Resend** — transactional email for the contact form
+
+### Tooling
+
+- **ESLint 9** — flat config (`eslint.config.mjs`) with `eslint-config-next`
+- **Prettier** — code formatting
+- **Playwright** — headless browser automation (cover screenshots)
+
+---
+
+## Project Structure
+
+```
+personal-portfolio/
+├── app/
+│   ├── [locale]/                 # Localized pages (pt default, en under /en)
+│   │   ├── page.tsx              # Home: hero, marquee, work, about, contact
+│   │   └── projects/
+│   │       ├── page.tsx          # Featured projects list
+│   │       └── [slug]/           # Case study page
+│   ├── api/
+│   │   └── contact/route.ts      # POST — validates + sends email via Resend
+│   ├── globals.css               # Design tokens + global styles
+│   ├── robots.ts                 # robots.txt
+│   └── sitemap.ts                # sitemap.xml (locales + cases)
+├── components/
+│   ├── home/                     # Hero, work-section, about, contact, marquee, ...
+│   ├── layout/                   # Header, footer, theme toggle
+│   └── ...                       # Reveal, Stagger, Marquee, LogoMark, icons
+├── config/
+│   └── site.ts                   # Profile + curated project order / denylist
+├── data/
+│   ├── cases.ts                  # Curated case studies (PT/EN narrative)
+│   └── profile.ts                # Bio, skills, work experiences
+├── i18n/
+│   ├── routing.ts                # locales, defaultLocale
+│   ├── request.ts                # message loading per locale
+│   └── navigation.ts             # localized Link / router
+├── lib/
+│   ├── contact-schema.ts         # Shared zod schema
+│   ├── github.ts                 # GitHub API client
+│   └── utils.ts                  # cn() helper
+├── assets/code.json              # Lottie animation
+├── public/images/covers/         # Case screenshots
+├── messages/                     # pt.json / en.json
+└── package.json
+```
+
+---
+
+## Running Locally
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm (recommended)
+
+### Installation
+
+```bash
+git clone https://github.com/mvnulman/personal-portfolio.git
+cd personal-portfolio
+pnpm install
+```
+
+### Environment Setup
+
+```bash
+cp .env.example .env.local
+```
+
+Configure the variables you need:
+
+```env
+GITHUB_USERNAME=mvnulman
+GITHUB_TOKEN=your_token        # optional, raises the API rate limit
+RESEND_API_KEY=re_xxxx         # required for real emails
+YOUR_EMAIL=you@example.com
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+### Run the development server
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3001](http://localhost:3001).
+
+---
+
+## Features
+
+### Internationalization (PT/EN)
+
+- `pt` serves at the root (`/`) and `en` at `/en`.
+- Locale toggle in the header, `hreflang` alternates and translated metadata.
+- All content (hero, sections, projects, cases, form) is localized through `messages/*.json`.
+
+### Dark / Light theme
+
+- Custom theme provider (no external dependency) that applies a `dark`/`light` class to `<html>`.
+- Persisted in `localStorage`, respects the system preference and avoids flash on load.
+- A single `#f05` accent that adapts its shade to each theme.
+
+### Editorial hero
+
+- Masthead with the name and role/location, a large animated **"LET'S BUILD SOMETHING TODAY"** headline and a Lottie programming animation.
+- Scroll-reveal and stagger entries via `motion`.
+
+### Curated case studies
+
+- `data/cases.ts` holds a typed, bilingual narrative with problem, solution, features and tech stack.
+- Each case has a live screenshot (`public/images/covers/`) captured with Playwright.
+- Dedicated route `/projects/[slug]` with prev/next navigation.
+
+### GitHub integration
+
+- `lib/github.ts` fetches public repos, filters forks/archived/junk and maps them to the site model.
+- Uses server-side fetch with `ISR`-style revalidation and an optional token.
+
+### Case detail pages
+
+- Hero with live-demo and repository buttons, overview card, problem/solution columns, feature cards and a "tech stack" tag cloud — all in the case accent.
+
+### Contact form
+
+- `react-hook-form` + `zod` resolver with field-level, translated error messages.
+- Shared schema (`lib/contact-schema.ts`) also used by the API route.
+- Sends email through Resend, with graceful fallback when the key is missing.
+
+### SEO
+
+- `metadataBase`, localized `title`/`description`, Open Graph image.
+- `sitemap.xml` covering every locale and case, plus `robots.txt`.
+
+---
+
+## Demonstration
+
+<img src="./public/demo.gif" alt="Portfolio demo" width="900" height="407" />
+
+## Credits
+
+Built with care and modern web standards. Design and code developed as part of personal studies and professional practice.

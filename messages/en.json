@@ -1,0 +1,91 @@
+{
+  "header": {
+    "nav": {
+      "work": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "home": "Home"
+  },
+  "hero": {
+    "roleLine": "Software developer · São Paulo, Brazil",
+    "phrase": ["LET'S", "BUILD", "SOMETHING", "TODAY"],
+    "intro": "Results in Frontend Architecture, Design Systems, componentization and web performance. I connect business rules, interfaces, APIs and performance to turn complex systems into fluid, scalable experiences, designed, built and put into production.",
+    "cta": "View projects"
+  },
+  "masthead": {
+    "line1": "FRONTEND",
+    "line2": "ENGINEER",
+    "line3": "DESIGN",
+    "tagline": "I design, build, and put into production: interface, business logic, and deploy.",
+    "index": "Index",
+    "work": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "meta": "Frontend Developer · React · TypeScript · Next.js"
+  },
+  "home": {
+    "role": "Frontend Developer · React.js · TypeScript · Next.js",
+    "seeMoreOnGithub": "See more on GitHub"
+  },
+  "work": {
+    "topic": "Featured work",
+    "title": "Projects that\nsolve problems",
+    "note": "A selection of my most recent projects, from concept to deploy. Each built to solve a real problem.",
+    "viewCase": "View case",
+    "seeMore": "See more on GitHub"
+  },
+  "about": {
+    "title": "About",
+    "note": "Brazil · Remote",
+    "heading": "I build Front-End results, from scratch.",
+    "p1": "I work in Front-End Development, Frontend Architecture, Design Systems, component-based construction, web performance and enterprise applications. I connect business rules, interfaces, components, APIs and performance to turn complex systems into fluid, scalable experiences.",
+    "p2": "I've worked across operational domains — public education and tax/fiscal management — where the hard part isn't the interface, it's encoding messy business rules into systems that stay reliable when real people depend on them.",
+    "skills": "Skills",
+    "experience": "Experience"
+  },
+  "contact": {
+    "title": "Let's\ntalk",
+    "note": "I usually reply within 24 hours.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "name": "Name",
+    "emailLabel": "Email",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "name@company.com",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send message",
+    "sent": "Message sent! I'll get back to you soon.",
+    "error": "Error sending. Please try again.",
+    "nameMin": "Name needs at least 2 characters.",
+    "emailInvalid": "Enter a valid email.",
+    "messageMin": "Message needs at least 10 characters."
+  },
+  "projects": {
+    "title": "Projects",
+    "note": "Featured work, from concept to deploy.",
+    "featured": "Featured",
+    "caseDetail": "View case"
+  },
+  "case": {
+    "overview": "Overview",
+    "problem": "The problem",
+    "solution": "The solution",
+    "features": "Features",
+    "stack": "Tech stack",
+    "next": "Next project",
+    "repo": "Repository",
+    "demo": "Live demo",
+    "year": "Year",
+    "back": "Back to projects"
+  },
+  "footer": {
+    "madeWith": "Built with Next.js · Deployed on Vercel"
+  },
+  "meta": {
+    "title": "Marcos Vinicius Nulman · Frontend Developer",
+    "description": "Frontend Developer specialized in React, TypeScript and Next.js. Builds modern, performant, bilingual interfaces. Check out my projects and case studies."
+  }
+}

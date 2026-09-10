@@ -2,26 +2,367 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   PALETA ÚNICA — identidade própria
+   Fundo: cinza escuro (não preto) | Acento: magenta #f05 | Neutros frios
+   ============================================================ */
+:root {
+  /* Fundo e superfícies (dark default) */
+  --bg: #161618;
+  --surface: #1d1d20;
+  --surface-2: #252529;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  --ink: #f2f2f2;
+  --ink-2: rgba(242, 242, 242, 0.68);
+  --ink-3: rgba(242, 242, 242, 0.42);
+
+  --accent: #f05;
+  --accent-2: #dd2590;
+  --accent-glow: rgba(255, 0, 85, 0.32);
+
+  --warm: #f4b860;
+  --warm-glow: rgba(244, 184, 96, 0.3);
+
+  --bg-glass: rgba(22, 22, 24, 0.7);
+  --btn-primary-ink: #ffffff;
+  --btn-primary: var(--accent);
+  --btn-ghost-bg: rgba(255, 255, 255, 0.04);
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --t-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-med: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-slow: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-spring: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== Modo claro ===== */
+.light {
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #eeeeef;
+  --line: rgba(0, 0, 0, 0.1);
+  --line-strong: rgba(0, 0, 0, 0.16);
+
+  --ink: #161618;
+  --ink-2: rgba(22, 22, 24, 0.66);
+  --ink-3: rgba(22, 22, 24, 0.42);
+
+  --accent: #e0004f;
+  --accent-2: #c0187f;
+  --accent-glow: rgba(224, 0, 79, 0.2);
+
+  --warm: #b45309;
+  --warm-glow: rgba(180, 83, 9, 0.18);
+
+  --bg-glass: rgba(247, 247, 248, 0.75);
+  --btn-primary-ink: #ffffff;
+  --btn-primary: var(--accent);
+  --btn-ghost-bg: rgba(0, 0, 0, 0.04);
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
   body {
-    @apply bg-gray-900 text-gray-100;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--btn-primary-ink);
   }
 }
 
-.container {
-  @apply mx-auto w-full max-w-[1200px] px-6;
+.wrap {
+  @apply mx-auto w-full;
+  max-width: 1200px;
+  padding-inline: clamp(20px, 5vw, 48px);
 }
 
+/* ============================================================
+   TIPOGRAFIA — display e labels
+   ============================================================ */
+.display {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--accent) 0%,
+    var(--accent-2) 40%,
+    var(--accent) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   COMPONENTES
+   ============================================================ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  transition: border-color var(--t-fast), background var(--t-fast),
+    box-shadow var(--t-fast), transform var(--t-fast);
+}
+.btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+.btn-primary {
+  background: var(--btn-primary);
+  border-color: var(--btn-primary);
+  color: var(--btn-primary-ink);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 32px var(--accent-glow);
+}
+.btn-ghost {
+  background: var(--btn-ghost-bg);
+  backdrop-filter: blur(8px);
+}
+
+/* Ações do case (Demo ao vivo / Repositório) */
+.case-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* Seta maior apenas nos botões do case */
+.case-arrow {
+  width: 0.85em !important;
+  height: 1em !important;
+}
+
+.section-topic {
+  color: var(--accent);
+}
+
+/* Badge de tecnologia com hover animado (apenas visual) */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: var(--ink-2);
+  cursor: default;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background var(--t-fast),
+    transform var(--t-fast),
+    box-shadow var(--t-fast);
+}
+.tech-badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 22px var(--accent-glow);
+}
+
+/* Traço "desenhado" para setas de link */
+.pen-arrow {
+  width: 0.5em;
+  height: 0.6em;
+  color: var(--accent);
+  transition: transform var(--t-fast);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 *::-webkit-scrollbar {
   width: 8px;
 }
-
 *::-webkit-scrollbar-track {
-  background: #374151;
-  border-radius: 5px;
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--ink-3);
+  border-radius: 14px;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: #ff4858;
-  border-radius: 14px;
+/* ============================================================
+   ANIMAÇÃO DE ENTRADA (scroll reveal)
+   Variantes: fade-up (default), blur (fade+scale+blur),
+   left / right (deslize lateral)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity var(--t-spring),
+    transform var(--t-spring),
+    filter var(--t-spring);
+  will-change: opacity, transform, filter;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* fade-up */
+.reveal[data-variant='up'] {
+  transform: translateY(28px);
+}
+/* fade + scale + blur */
+.reveal[data-variant='blur'] {
+  transform: translateY(16px) scale(0.98);
+  filter: blur(8px);
+}
+/* lateral */
+.reveal[data-variant='left'] {
+  transform: translateX(-32px);
+}
+.reveal[data-variant='right'] {
+  transform: translateX(32px);
+}
+/* fade puro */
+.reveal[data-variant='fade'] {
+  transform: none;
+}
+
+/* ============================================================
+   MARQUEE (texto rolando)
+   ============================================================ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   HOVER LIFT + GLOW (cards / botões)
+   ============================================================ */
+.hover-lift {
+  transition:
+    transform var(--t-fast),
+    border-color var(--t-fast),
+    box-shadow var(--t-fast),
+    background var(--t-fast);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 18px 48px var(--accent-glow);
+}
+.hover-glow {
+  transition: box-shadow var(--t-fast), transform var(--t-fast);
+}
+.hover-glow:hover {
+  box-shadow: 0 12px 40px var(--accent-glow);
+}
+
+/* Headline do hero (desktop): palavras empilhadas */
+.hero-headline > span {
+  display: block;
+}
+
+/* ============================================================
+   RESPONSIVIDADE (mobile-first colapso de grids)
+   As classes .stack e .stack-md usam !important para vencer
+   os estilos inline de gridTemplateColumns.
+   ============================================================ */
+
+/* Empilha em telas até 768px (aplica em qualquer lugar que tenha a classe) */
+@media (max-width: 768px) {
+  .stack {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  /* Hero: esconder a animação Lottie no mobile */
+  .lottie-hide-mobile {
+    display: none !important;
+  }
+  /* Reduzir espaçamento do hero e títulos */
+  .display {
+    line-height: 1.05 !important;
+  }
+  /* Menu mobile: garantir que o texto não vaze */
+  .mobile-menu a {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  /* Badges sociais no hero: permitir quebra em mobile */
+  .socials-mobile {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    white-space: normal !important;
+  }
+  /* Cards de projeto: seta alinhada à esquerda quando empilhado */
+  .card.stack .pen-arrow {
+    justify-self: start !important;
+  }
+  /* Ações do case: em linha horizontal centralizada no mobile */
+  .case-actions {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: stretch !important;
+  }
+  /* Headline do hero: 2 linhas no mobile (VAMOS CONSTRUIR / ALGO HOJE) */
+  .hero-headline {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    column-gap: 0.28em !important;
+    font-size: clamp(30px, 9.5vw, 40px) !important;
+  }
+  .hero-headline > span {
+    display: inline;
+    white-space: nowrap;
+  }
+  .hero-headline > span:last-child {
+    flex-basis: 100%;
+  }
 }

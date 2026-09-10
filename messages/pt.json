@@ -1,0 +1,91 @@
+{
+  "header": {
+    "nav": {
+      "work": "Projetos",
+      "about": "Sobre",
+      "contact": "Contato"
+    },
+    "home": "Início"
+  },
+  "hero": {
+    "roleLine": "Desenvolvedor de software · São Paulo, Brasil",
+    "phrase": ["VAMOS", "CONSTRUIR", "ALGO", "HOJE"],
+    "intro": "Resultados em Frontend Architecture, Design Systems, componentização e performance web. Conecto regras de negócio, interfaces, APIs e performance para transformar sistemas complexos em experiências fluidas e escaláveis, projetadas, construídas e colocadas em produção.",
+    "cta": "Ver projetos"
+  },
+  "masthead": {
+    "line1": "FRONTEND",
+    "line2": "ENGINEER",
+    "line3": "DESIGN",
+    "tagline": "Crio interfaces, implemento a lógica de negócio e levo o produto para produção.",
+    "index": "Índice",
+    "work": "Projetos",
+    "about": "Sobre",
+    "contact": "Contato",
+    "meta": "Desenvolvedor Frontend · React · TypeScript · Next.js"
+  },
+  "home": {
+    "role": "Desenvolvedor Frontend · React.js · TypeScript · Next.js",
+    "seeMoreOnGithub": "Ver mais no GitHub"
+  },
+  "work": {
+    "topic": "Trabalhos em destaque",
+    "title": "Projetos que\nresolvem problemas",
+    "note": "Uma seleção dos projetos mais recentes, do conceito ao deploy. Cada um construído para resolver um problema real.",
+    "viewCase": "Ver case",
+    "seeMore": "Ver mais no GitHub"
+  },
+  "about": {
+    "title": "Sobre",
+    "note": "Brasil · Remoto",
+    "heading": "Construo resultados em Front-End, do zero.",
+    "p1": "Atuo em Desenvolvimento Front-End, Frontend Architecture, Design Systems, componentização, performance web e aplicações corporativas. Conecto regras de negócio, interfaces, componentes, APIs e performance para transformar sistemas complexos em experiências fluidas e escaláveis.",
+    "p2": "Passei por domínios operacionais complexos — educação pública, gestão fiscal e tributária — onde a parte difícil não é a interface, é codificar regras de negócio confusas em sistemas que permanecem confiáveis quando pessoas reais dependem deles.",
+    "skills": "Tecnologias",
+    "experience": "Experiência"
+  },
+  "contact": {
+    "title": "Vamos\nconversar",
+    "note": "Normalmente respondo em até 24hs.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "name": "Nome",
+    "emailLabel": "E-mail",
+    "message": "Mensagem",
+    "namePlaceholder": "Seu nome",
+    "emailPlaceholder": "nome@empresa.com",
+    "messagePlaceholder": "Fale sobre o seu projeto...",
+    "send": "Enviar mensagem",
+    "sent": "Mensagem enviada! Em breve entrarei em contato.",
+    "error": "Erro ao enviar. Tente novamente.",
+    "nameMin": "Nome precisa de pelo menos 2 caracteres.",
+    "emailInvalid": "Digite um e-mail válido.",
+    "messageMin": "Mensagem precisa de pelo menos 10 caracteres."
+  },
+  "projects": {
+    "title": "Projetos",
+    "note": "Trabalhos em destaque, do conceito ao deploy.",
+    "featured": "Em destaque",
+    "caseDetail": "Ver case"
+  },
+  "case": {
+    "overview": "Visão geral",
+    "problem": "O problema",
+    "solution": "A solução",
+    "features": "Funcionalidades",
+    "stack": "Tecnologias",
+    "next": "Próximo projeto",
+    "repo": "Repositório",
+    "demo": "Demo ao vivo",
+    "year": "Ano",
+    "back": "Voltar para projetos"
+  },
+  "footer": {
+    "madeWith": "Construído com Next.js · Deploy no Vercel"
+  },
+  "meta": {
+    "title": "Marcos Vinicius Nulman · Desenvolvedor Frontend",
+    "description": "Desenvolvedor Frontend especializado em React, TypeScript e Next.js. Cria interfaces modernas, performáticas e bilíngues. Confira meus projetos e cases."
+  }
+}
