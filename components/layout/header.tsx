@@ -20,7 +20,8 @@ export function Header() {
   const otherLocale = locale === 'pt' ? 'en' : 'pt';
 
   const switchLocale = () => {
-    router.replace(pathname, { locale: otherLocale });
+    router.replace(pathname, { locale: otherLocale, scroll: false });
+    setTimeout(() => window.scrollTo(0, 0), 300);
   };
 
   const close = () => setOpen(false);
@@ -70,7 +71,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href as never}
-              className="label"
+              className="label nav-link"
               style={{ color: 'var(--ink-2)' }}
             >
               {item.label}
