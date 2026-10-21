@@ -52,9 +52,45 @@ type Experience = {
 export const experiences: Experience[] = [
   {
     role: { pt: 'Desenvolvedor Frontend Pleno', en: 'Mid Frontend Developer' },
+    company: 'Volix',
+    companyUrl: 'https://volix.com.br/',
+    start: '2026-10',
+    level: 'Pleno',
+    location: { pt: 'São Paulo, Brasil · Híbrido', en: 'São Paulo, Brazil · Hybrid' },
+    summary: {
+      pt: 'Atuação no desenvolvimento de aplicações web e plataformas SaaS, com foco na construção de interfaces escaláveis, performáticas e de fácil manutenção, utilizando React, Next.js e TypeScript.',
+      en: 'Working on web applications and SaaS platforms, focused on building scalable, performant and maintainable interfaces with React, Next.js and TypeScript.',
+    },
+    bullets: [
+      {
+        pt: 'Desenvolvo e evoluo aplicações web com React, Next.js (App Router) e TypeScript, priorizando modularidade, reutilização e separação de responsabilidades.',
+        en: 'Develop and evolve web applications with React, Next.js (App Router) and TypeScript, prioritizing modularity, reuse and separation of concerns.',
+      },
+      {
+        pt: 'Estruturo aplicações com arquitetura MVVM e organização by-feature, além de construir e manter Design Systems com Tailwind CSS, CVA, Base UI e Storybook.',
+        en: 'Structure applications with MVVM architecture and by-feature organization, and build and maintain Design Systems with Tailwind CSS, CVA, Base UI and Storybook.',
+      },
+      {
+        pt: 'Gerencio estado e dados assíncronos com TanStack Query e Zustand, desenvolvo formulários com React Hook Form e Zod e integro APIs REST com Axios.',
+        en: 'Manage state and asynchronous data with TanStack Query and Zustand, build forms with React Hook Form and Zod and integrate REST APIs with Axios.',
+      },
+      {
+        pt: 'Implemento dashboards, tabelas e gráficos para visualização e gestão de dados, além de testes unitários, de integração e end-to-end com Vitest, React Testing Library e Cypress.',
+        en: 'Implement dashboards, tables and charts for data visualization and management, as well as unit, integration and end-to-end tests with Vitest, React Testing Library and Cypress.',
+      },
+      {
+        pt: 'Aplico boas práticas de componentização e Clean Code, com padronização via ESLint, Prettier e Husky, colaborando na evolução da arquitetura frontend em performance, experiência do usuário e qualidade das entregas.',
+        en: 'Apply componentization and Clean Code best practices, standardized with ESLint, Prettier and Husky, collaborating on frontend architecture evolution across performance, user experience and delivery quality.',
+      },
+    ],
+    tech: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'React Hook Form', 'Zod', 'Axios', 'Storybook', 'Vitest', 'React Testing Library', 'Cypress', 'Git'],
+  },
+  {
+    role: { pt: 'Desenvolvedor Frontend Pleno', en: 'Mid Frontend Developer' },
     company: 'Laclaw Technology',
     companyUrl: 'https://laclaw.com.br/',
     start: '2026-02',
+    end: '2026-10',
     level: 'Pleno',
     location: { pt: 'São Paulo, Brasil · Híbrido', en: 'São Paulo, Brazil · Hybrid' },
     summary: {
