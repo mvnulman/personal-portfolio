@@ -24,6 +24,63 @@ export function getCase(slug: string): ProjectCase | undefined {
 
 export const CASES: ProjectCase[] = [
   {
+    slug: 'frontend-dashboard',
+    repo: 'frontend-dashboard',
+    kind: 'Dashboard',
+    year: 2026,
+    title: { pt: 'Frontend Radar', en: 'Frontend Radar' },
+    headline: {
+      pt: 'O pulso do ecossistema frontend em um só painel: adoção, momentum, maturidade e releases.',
+      en: 'The pulse of the frontend ecosystem in a single panel: adoption, momentum, maturity and releases.',
+    },
+    summary: {
+      pt: 'Dashboard interativo em Next.js 16 com 34 tecnologias, gráficos Recharts, radar SVG com quatro anéis de maturidade, comparador de até três stacks e timeline de releases — tudo derivado de um único dataset tipado.',
+      en: 'An interactive Next.js 16 dashboard with 34 technologies, Recharts charts, an SVG radar with four maturity rings, a comparison view for up to three stacks and a release timeline — all derived from a single typed dataset.',
+    },
+    problem: {
+      pt: 'Acompanhar o ecossistema frontend é fragmentado: índices de adoção, notas de release e sinais de maturidade vivem em fontes diferentes, sem uma leitura visual que permita comparar tecnologias rapidamente.',
+      en: 'Following the frontend ecosystem is fragmented: adoption indices, release notes and maturity signals live in different sources, with no visual reading that allows quick technology comparison.',
+    },
+    solution: {
+      pt: 'Construí um painel com App Router e shadcn/ui onde um dataset tipado em TypeScript alimenta todas as rotas — visão geral, catálogo, radar, releases e comparador — com séries determinísticas, tema claro/escuro e command palette.',
+      en: 'I built a dashboard with the App Router and shadcn/ui where a typed TypeScript dataset feeds every route — overview, catalog, radar, releases and comparison — with deterministic series, light/dark themes and a command palette.',
+    },
+    features: [
+      {
+        title: { pt: 'Visão geral com KPIs', en: 'Overview with KPIs' },
+        description: {
+          pt: 'Tecnologias monitoradas, em ascensão, releases do trimestre, gráfico de tração por categoria, líderes de momentum e distribuição de maturidade.',
+          en: 'Tracked technologies, rising ones, quarterly releases, traction-by-category chart, momentum leaders and maturity distribution.',
+        },
+      },
+      {
+        title: { pt: 'Catálogo filtrável', en: 'Filterable catalog' },
+        description: {
+          pt: 'Busca tolerante a acentos, filtros por categoria e maturidade, ordenação, visualização em grade/lista, ficha detalhada e exportação CSV.',
+          en: 'Accent-tolerant search, category and maturity filters, sorting, grid/list views, detail sheet and CSV export.',
+        },
+      },
+      {
+        title: { pt: 'Radar interativo', en: 'Interactive radar' },
+        description: {
+          pt: 'Radar em SVG com cinco setores e quatro anéis de maturidade, filtros por categoria e painel "em foco" para explorar cada tecnologia.',
+          en: 'An SVG radar with five sectors and four maturity rings, category filters and a "in focus" panel to explore each technology.',
+        },
+      },
+      {
+        title: { pt: 'Comparador e command palette', en: 'Comparison and command palette' },
+        description: {
+          pt: 'Compare até três tecnologias com radar de scores e melhores valores destacados; ⌘K abre navegação, busca, troca de tema e cópia de link.',
+          en: 'Compare up to three technologies with a score radar and highlighted best values; ⌘K opens navigation, search, theme switching and link copying.',
+        },
+      },
+    ],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Recharts', 'Vitest'],
+    liveUrl: 'https://frontend-trends-dashboard.vercel.app/',
+    cover: '/images/covers/frontend-dashboard.jpg',
+    githubUrl: 'https://github.com/mvnulman/frontend-dashboard',
+  },
+  {
     slug: 'feed-newsapi',
     repo: 'feed-newsapi',
     kind: 'Web app',

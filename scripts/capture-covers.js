@@ -8,6 +8,7 @@ const OUT_DIR = path.resolve(__dirname, '../public/images/covers');
 // Verifica se temos uma página viva para tirar screenshot.
 // Só captura os que têm URL pública. (react-login-page não tem homepage)
 const TARGETS = [
+  { slug: 'frontend-dashboard', url: 'https://frontend-trends-dashboard.vercel.app/' },
   { slug: 'feed-newsapi', url: 'https://feed-newsapi.vercel.app' },
   { slug: 'users-register-app', url: 'https://users-register-app.vercel.app/' },
   { slug: 'just-ask', url: 'https://justask-ae05a.web.app/' },

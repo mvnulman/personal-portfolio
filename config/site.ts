@@ -15,6 +15,7 @@ export const profile = {
 export const projects = {
   // Ordem dos destaques (case studies). O primeiro item é o mais recente.
   featured: [
+    'frontend-dashboard',
     'feed-newsapi',
     'users-register-app',
     'just-ask',
